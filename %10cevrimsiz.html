@@ -1,0 +1,313 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Radisson Promo</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+*{box-sizing:border-box;}
+
+body{
+  margin:0;
+  color:#eeeeee;
+  font-family:Manrope, sans-serif;
+  background-image:url('https://sport.cmsdigi.com/App_Data/084fbfcc-bd46-423e-ae29-5b998430504a/Files/promosyon-arkaplan.jpg');
+  background-repeat:repeat;
+  background-position:left top;
+  background-attachment:fixed;
+  background-size:auto;
+  overflow-x:hidden;
+}
+
+.page{
+  max-width:1200px;
+  margin:0 auto;
+  padding:16px;
+}
+
+.header{
+  display:flex;
+  justify-content:flex-start;
+  align-items:center;
+  gap:14px;
+  flex-wrap:wrap;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.brand-link{
+  display:flex;
+  align-items:center;
+  text-decoration:none;
+}
+
+.brand img{
+  height:42px;
+  display:block;
+}
+
+.brand-slogan{
+  font-family:Sora, system-ui, sans-serif;
+  font-weight:600;
+  letter-spacing:0.2px;
+  font-size:13px;
+  background-image:linear-gradient(90deg, rgb(207,229,255), rgb(142,198,255));
+  background-clip:text;
+  color:rgba(238,238,238,0.85);
+  text-shadow:rgba(30,94,255,0.35) 0px 2px 14px;
+  white-space:nowrap;
+  line-height:1;
+}
+
+.neon-divider{
+  margin:16px 0 28px;
+  height:12px;
+  border-radius:999px;
+  background:linear-gradient(90deg, rgba(0,240,255,0), rgba(3,46,115,0.85), rgba(3,46,115,0.55), rgba(3,46,115,0.85), rgba(0,240,255,0));
+  position:relative;
+  box-shadow:rgb(255,255,255) 0px 0px 13px, rgba(0,255,255,0.22) 0px 0px 46px;
+  overflow:hidden;
+}
+
+.neon-divider::before{
+  content:"";
+  position:absolute;
+  inset:2px;
+  border-radius:999px;
+  background:linear-gradient(rgba(18,29,47,0.55), rgba(18,29,47,0.9));
+}
+
+.neon-divider::after{
+  content:"";
+  position:absolute;
+  top:0;
+  bottom:0;
+  left:-40%;
+  width:45%;
+  background:linear-gradient(90deg, transparent, rgba(52,67,249,0.55), transparent);
+  filter:blur(1px);
+  animation:sweep 2.8s ease-in-out infinite;
+  opacity:0.75;
+}
+
+.hero{
+  margin:14px 0 16px;
+  padding:48px 0;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:28px;
+  align-items:center;
+}
+
+.hero h1{
+  font-family:Sora, sans-serif;
+  font-size:36px;
+  margin:0 0 10px;
+  color:#eeeeee;
+}
+
+.hero p{
+  margin:0;
+  color:rgba(238,238,238,0.86);
+  font-size:16px;
+}
+
+.hero-image{
+  max-width:560px;
+  justify-self:end;
+  position:relative;
+  padding:5px;
+  border-radius:18px;
+  background:
+    linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0.02)),
+    conic-gradient(from 210deg, rgba(3,46,115,0.95), rgba(3,46,115,0.55), rgba(3,46,115,0.95), rgba(3,46,115,0.55), rgba(3,46,115,0.95));
+}
+
+.hero-image::before{
+  content:"";
+  position:absolute;
+  inset:1px;
+  border-radius:20px;
+  background:linear-gradient(rgba(18,29,47,0.35), rgba(18,29,47,0.92));
+  pointer-events:none;
+}
+
+.hero-image::after{
+  content:"";
+  position:absolute;
+  inset:-8px;
+  border-radius:24px;
+  background:
+    radial-gradient(280px 180px at 65% 20%, rgba(0,255,255,0.22), transparent 60%),
+    radial-gradient(260px 170px at 25% 80%, rgba(0,240,255,0.18), transparent 62%);
+  filter:blur(2px);
+  pointer-events:none;
+}
+
+.hero-image img{
+  width:100%;
+  border-radius:14px;
+  position:relative;
+  z-index:2;
+  height:auto;
+  display:block;
+  object-fit:cover;
+}
+
+.rules{
+  margin:54px 0 40px;
+  padding:28px 0 64px;
+}
+
+.rules h2{
+  margin:0 0 18px;
+  font-size:28px;
+  color:#eeeeee;
+}
+
+.rules-ol{
+  margin:0;
+  padding-left:22px;
+}
+
+.rules-ol li{
+  padding:14px 0;
+  border-bottom:1px dashed rgba(0,240,255,0.16);
+  font-weight:800;
+  color:#eeeeee;
+  font-size:16px;
+  line-height:1.55;
+}
+
+.rules-ol li::marker{
+  color:#fff;
+  font-weight:900;
+}
+
+.rules-ol li:last-child{
+  border-bottom:none;
+}
+
+.mobile-neon{
+  display:none;
+}
+
+@keyframes sweep{
+  0%{transform:translateX(0);}
+  100%{transform:translateX(220%);}
+}
+
+@media(max-width:768px){
+  .hero{
+    padding:12px 0 28px;
+    grid-template-columns:1fr;
+    gap:14px;
+  }
+
+  .brand-slogan{
+    font-size:11.5px;
+  }
+
+  .hero-image{
+    max-width:100%;
+    justify-self:stretch;
+    order:-2;
+  }
+
+  .hero h1{
+    font-size:26px;
+  }
+
+  .hero p{
+    font-size:15px;
+  }
+
+  .mobile-neon{
+    display:block;
+    order:-1;
+    margin-top:8px;
+    margin-bottom:0;
+  }
+}
+
+@media(max-width:380px){
+  .brand-slogan{
+    max-width:160px;
+    overflow:hidden;
+    text-overflow:ellipsis;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="page">
+
+  <header class="header">
+    <div class="brand">
+      <a href="https://ptns.io/radiguncel" target="_blank" rel="noopener" class="brand-link">
+        <img src="https://cdn.prod.website-files.com/68ad80d65417514646edf3a3/68adb798dfed270f5040c714_logowhite.png" alt="Radisson">
+      </a>
+      <span class="brand-slogan">Türkiye’nin Mavi Sitesi</span>
+    </div>
+  </header>
+
+  <div aria-hidden="true" class="neon-divider"></div>
+
+  <section class="hero">
+    <div>
+      <h1>Her Alanda Geçerli %10 Çevrimsiz Yatırım Bonusu</h1>
+      <div aria-hidden="true" class="neon-divider mobile-neon"></div>
+      
+    </div>
+
+    <div class="hero-image">
+      <img src="https://i.ibb.co/hRkqfB14/promo.jpg" alt="Radisson Promo">
+    </div>
+  </section>
+
+  <section class="rules">
+    <h2>Kurallar ve Koşullar</h2>
+
+    <ol class="rules-ol">
+      <li>Minimum 1000₺ yatırım sağlamanız halinde %10 Yatırım Bonusundan 7/24 faydalanabilirsiniz.<br></li>
+
+      <li>Yatırımınızı sağladıktan sonra bakiyenizde herhangi bir harcama yapmadan bonusunuzu<a href="https://ptns.io/wJUMj"
+target="_blank"
+style="
+color:#6ab8ff;
+font-weight:800;
+text-decoration:none;
+text-shadow:0 0 10px rgba(106,184,255,.9);
+">
+Bonus Talep
+</a> kısmından veya Canlı Destek hattına bağlanarak talep edebilirsiniz.<br></li>
+
+      <li>24 saat içerisinde çekim tutarınız yatırım tutarınızdan daha yüksek olması durumunda %10 Yatırım Bonusundan faydalanamazsınız.<br></li>
+
+      <li>Spor alanında ana paranın 1 katı, bonus miktarının ise 3 katı kadar minimum 1.30 ve üzeri oranlar ile kombine kupon olarak bahis almanız gerekmektedir.<br></li>
+
+      <li>Bu bonus ile Zeppelin, Aviator, Aviatrix vb. hızlı oyunlarda minimum 1.99x çarpanda bahis bozdurabilirsiniz.<br></li>
+
+      <li>Kombine kuponlarda alınan her karşılaşma için minimum oran 1.30 olmalıdır.<br></li>
+
+      <li>Casino alanında ana para miktarının 1 katı, bonus miktarının 3 katı kadar bahis alınması durumunda bonus çevriminiz tamamlanmaktadır.<br></li>
+
+      <li>Bu bonus ile maksimum anaparanızın 20 katı kazanç elde edebilirsiniz.<br></li>
+
+      <li>RadissonBet Anapara &amp; Bonus Kuralları geçerlidir.<br></li>
+    </ol>
+  </section>
+
+</div>
+
+</body>
+</html>
+```
