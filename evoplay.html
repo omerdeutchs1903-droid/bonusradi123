@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RadissonBet — EVOPLAY ENTERTAINMENT Turnuvası</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: 'Manrope', sans-serif;
+            color: var(--text);
+            background-image: linear-gradient(rgba(18, 29, 47, 0.85), rgba(18, 29, 47, 0.85)), url("https://i.ibb.co/r2mmChXD/1920x1800-20260113171928904-20260119234923247-2.webp");
+            background-position: center top;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-color: transparent;
+        }
+        :root {
+            --bg: #121d2f;
+            --text: #eeeeee;
+            --sub: #fff;
+            --aqua: aqua;
+            --red: #ff2b2b;
+        }
+        .page {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 16px;
+        }
+        .header {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: nowrap;
+        }
+        .brand-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+        .brand img {
+            height: 42px;
+            display: block;
+        }
+        .brand-slogan {
+            font-weight: 600;
+            color: rgba(238, 238, 238, 0.85);
+            font-size: 13px;
+            white-space: nowrap;
+            line-height: 1;
+        }
+        .neon-divider {
+            margin: 16px 0 28px 0;
+            height: 12px;
+            border-radius: 999px;
+            background-image: linear-gradient(90deg, rgba(0, 240, 255, 0), rgba(3, 46, 115, 0.85), rgba(3, 46, 115, 0.55), rgba(3, 46, 115, 0.85), rgba(0, 240, 255, 0));
+            position: relative;
+            box-shadow: #ffffff 0px 0px 13px, rgba(0, 255, 255, 0.22) 0px 0px 46px;
+            overflow: hidden;
+        }
+        .neon-divider::before {
+            content: "";
+            position: absolute;
+            top: 2px; right: 2px; bottom: 2px; left: 2px;
+            border-radius: 999px;
+            background-image: linear-gradient(rgba(18, 29, 47, 0.55), rgba(18, 29, 47, 0.9));
+        }
+        .neon-divider::after {
+            content: "";
+            position: absolute;
+            top: 0; bottom: 0; left: -40%;
+            width: 45%;
+            background-image: linear-gradient(90deg, transparent, rgba(52, 67, 249, 0.55), transparent);
+            filter: blur(1px);
+            animation: sweep 2.8s ease-in-out infinite;
+            opacity: 0.75;
+        }
+        @keyframes sweep {
+            0% { transform: translateX(0px); }
+            100% { transform: translateX(220%); }
+        }
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 28px;
+            align-items: center;
+        }
+        .eyebrow {
+            color: aqua;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+        .hero h1 {
+            font-family: 'Sora', sans-serif;
+            font-size: clamp(27px, 4vw, 42px);
+            line-height: 1.15;
+            margin: 8px 0 14px 0;
+            color: var(--text);
+        }
+        .hero-copy {
+            font-size: 17px;
+            line-height: 1.65;
+            color: rgba(238, 238, 238, 0.86);
+            margin: 0;
+        }
+        .hero-image {
+            max-width: 560px;
+            justify-self: end;
+            position: relative;
+            padding: 5px;
+            border-radius: 18px;
+            background-image: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.02)), conic-gradient(from 210deg, rgba(3, 46, 115, 0.95), rgba(3, 46, 115, 0.55), rgba(3, 46, 115, 0.95), rgba(3, 46, 115, 0.55), rgba(3, 46, 115, 0.95));
+        }
+        .hero-image img {
+            width: 100%;
+            border-radius: 14px;
+            position: relative;
+            z-index: 2;
+            height: auto;
+            display: block;
+            object-fit: cover;
+        }
+        .hero-image::before {
+            content: "";
+            position: absolute;
+            top: 1px; right: 1px; bottom: 1px; left: 1px;
+            border-radius: 20px;
+            background-image: linear-gradient(rgba(18, 29, 47, 0.35), rgba(18, 29, 47, 0.92));
+            pointer-events: none;
+        }
+        .hero-image::after {
+            content: "";
+            position: absolute;
+            top: -8px; right: -8px; bottom: -8px; left: -8px;
+            border-radius: 24px;
+            background-image: radial-gradient(280px 180px at 65% 20%, rgba(0, 255, 255, 0.22), transparent 60%), radial-gradient(260px 170px at 25% 80%, rgba(0, 240, 255, 0.18), transparent 62%);
+            filter: blur(2px);
+            pointer-events: none;
+        }
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 14px;
+            margin: 22px 0 32px;
+        }
+        .info-card, .content-card {
+            background: rgba(15, 27, 45, 0.88);
+            border: 1px solid rgba(0, 240, 255, 0.25);
+            border-radius: 14px;
+            padding: 18px;
+            box-shadow: 0 0 18px rgba(0, 240, 255, 0.06);
+        }
+        .info-card span {
+            display: block;
+            color: #b8c8d8;
+            font-size: 12px;
+            margin-bottom: 7px;
+        }
+        .info-card strong {
+            font-size: 18px;
+            color: #fff;
+        }
+        .content-card {
+            margin: 18px 0 26px;
+        }
+        .content-card h2, .rules h2 {
+            color: #fff;
+            margin-top: 0;
+            font-size: 28px;
+        }
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 14px;
+        }
+        .step-num {
+            font-size: 25px;
+            color: aqua;
+            font-weight: 800;
+        }
+        .rules {
+            margin: 54px 0 40px 0;
+        }
+        .rules-ol {
+            margin: 0;
+            padding: 0 0 0 22px;
+        }
+        .rules-ol li {
+            margin: 0 0 12px;
+            padding: 0 0 12px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+            line-height: 1.65;
+            color: var(--text);
+            font-size: 15px;
+        }
+        .rules-ol li::marker {
+            color: var(--sub);
+            font-weight: 900;
+        }
+        .rules-ol li:last-child {
+            border-bottom: none;
+        }
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 14px;
+            font-size: 14px;
+        }
+        .data-table th, .data-table td {
+            padding: 11px 12px;
+            border: 1px solid rgba(255, 255, 255, 0.22);
+            text-align: left;
+        }
+        .data-table th {
+            background: rgba(0, 240, 255, 0.12);
+            color: #fff;
+        }
+        .data-table tr:nth-child(even) {
+            background: rgba(255, 255, 255, 0.04);
+        }
+        .games-list {
+            columns: 3;
+            column-gap: 30px;
+            padding-left: 22px;
+            margin: 0;
+        }
+        .games-list li {
+            break-inside: avoid;
+            margin: 0 0 8px;
+            color: var(--text);
+        }
+        .footer {
+            padding: 22px 0;
+            color: #b9c5d2;
+            font-size: 12px;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+        }
+        @media(max-width:768px) {
+            .hero { grid-template-columns: 1fr; gap: 14px; }
+            .hero-image { max-width: 100%; justify-self: stretch; order: -1; }
+            .info-grid { grid-template-columns: 1fr 1fr; }
+            .steps { grid-template-columns: 1fr; }
+            .games-list { columns: 2; }
+            .data-table { font-size: 12px; }
+            .data-table th, .data-table td { padding: 8px 6px; }
+        }
+        @media(max-width:480px) {
+            .info-grid { grid-template-columns: 1fr; }
+            .games-list { columns: 1; }
+            .info-card strong { font-size: 17px; }
+        }
+    </style>
+</head>
+<body id="ibng">
+    <main class="page">
+        <header class="header">
+            <div class="brand">
+                <a href="#" rel="noopener" class="brand-link">
+                    <img src="https://cdn.prod.website-files.com/68ad80d65417514646edf3a3/68adb798dfed270f5040c714_logowhite.png" alt="RadissonBet">
+                </a>
+                <span class="brand-slogan">EVOPLAY ENTERTAINMENT</span>
+            </div>
+        </header>
+
+        <div class="neon-divider" aria-hidden="true"></div>
+
+        <section class="hero">
+            <div>
+                <div class="eyebrow">EVOPLAY ENTERTAINMENT</div>
+                <h1>22.102.948,00₺ <span style="color:aqua"><br>ÖDÜL HAVUZLU TURNUVA!</span></h1>
+                <p class="hero-copy"><strong>Evoplay Entertainment turnuvası RadissonBet'te! Geçerli oyunlarda minimum 0,20 € bahisle katılım sağlayın. Kampanya kapsamında turnuva ödüllerinin yanı sıra Şans Çarkı ve günlük ödül dağıtımları da yer alır.</strong></p>
+            </div>
+            <div class="hero-image">
+                <img src="https://i.ibb.co/ZprNC9BK/promo.jpg" alt="RadissonBet Evoplay Entertainment Turnuvası">
+            </div>
+        </section>
+
+        <div class="info-grid">
+            <div class="info-card">
+                <span>Başlangıç</span>
+                <strong>1 Eylül 2026 - 00:01</strong>
+            </div>
+            <div class="info-card">
+                <span>Bitiş</span>
+                <strong>29 Kasım 2026 - 23:59</strong>
+            </div>
+            <div class="info-card">
+                <span>Minimum Bahis</span>
+                <strong>0,20 €</strong>
+            </div>
+            <div class="info-card">
+                <span>Aşama Süresi</span>
+                <strong>5 Gün</strong>
+            </div>
+        </div>
+
+        <section class="content-card">
+            <h2>Nasıl Katılabilirsiniz?</h2>
+            <p>Geçerli Evoplay oyunlarını, aşama takvimini ve ödül koşullarını inceleyiniz.</p>
+            <div class="steps">
+                <div>
+                    <div class="step-num">01</div>
+                    <h3>Geçerli Oyunu Seçin</h3>
+                    <p>Aşağıda listelenen Evoplay oyunlarından birinde turnuvaya katılın.</p>
+                </div>
+                <div>
+                    <div class="step-num">02</div>
+                    <h3>Minimum 0,20 € Bahis Yapın</h3>
+                    <p>Turnuvada ödül kazanabilmek için geçerli oyunlarda en az 0,20 € bahis almanız gerekmektedir.</p>
+                </div>
+                <div>
+                    <div class="step-num">03</div>
+                    <h3>Ödül Koşullarını Takip Edin</h3>
+                    <p>Ödüller turnuva sona erdikten sonraki 24–72 saat içinde otomatik olarak tanımlanır.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-card">
+            <h2>Turnuva Aşamaları</h2>
+            <p>Her ay dört aşama bulunur. Her aşama beş gün sürer. Ekim ve Kasım 2026 aşamaları aşağıda yer almaktadır.</p>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Ay</th>
+                        <th>Aşama</th>
+                        <th>Tarih Aralığı</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Ekim</strong></td>
+                        <td>1. Aşama</td>
+                        <td>1–5 Ekim 2026</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Ekim</strong></td>
+                        <td>2. Aşama</td>
+                        <td>9–13 Ekim 2026</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Ekim</strong></td>
+                        <td>3. Aşama</td>
+                        <td>17–21 Ekim 2026</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Ekim</strong></td>
+                        <td>4. Aşama</td>
+                        <td>25–29 Ekim 2026</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Kasım</strong></td>
+                        <td>1. Aşama</td>
+                        <td>1–5 Kasım 2026</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Kasım</strong></td>
+                        <td>2. Aşama</td>
+                        <td>9–13 Kasım 2026</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Kasım</strong></td>
+                        <td>3. Aşama</td>
+                        <td>17–21 Kasım 2026</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Kasım</strong></td>
+                        <td>4. Aşama</td>
+                        <td>25–29 Kasım 2026</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p style="margin-top: 14px; font-size: 13px; color: #b8c8d8;">* Kampanya kapsamında turnuva ödüllerinin yanı sıra Şans Çarkı ve günlük ödül dağıtımları da yer alır.</p>
+        </section>
+
+        <section class="rules">
+            <h2>Genel Kurallar ve Şartlar</h2>
+            <p>Turnuvaya katılmadan önce katılım, ödül ve çevrim koşullarını dikkatlice okuyunuz.</p>
+            <h3>Evoplay Entertainment — Turnuva Şartları</h3>
+            <ol class="rules-ol">
+                <li>Turnuvada ödül kazanabilmek için Evoplay sağlayıcısının geçerli oyunlarında minimum <strong>0,20 €</strong> bahis almanız gerekmektedir.</li>
+                <li>Turnuvada her ay dört aşama bulunur. Her aşama beş gün sürer. Ekim 2026 aşamaları: 1. aşama 1–5 Ekim, 2. aşama 9–13 Ekim, 3. aşama 17–21 Ekim ve 4. aşama 25–29 Ekim tarihlerinde düzenlenir.</li>
+                <li>Kasım ayındaki aşamalar da aynı tarihlerde, yani 1–5, 9–13, 17–21 ve 25–29 Kasım 2026 tarihlerinde düzenlenir.</li>
+                <li>Kampanya kapsamında turnuva ödüllerinin yanı sıra Şans Çarkı ve günlük ödül dağıtımları da yer alır.</li>
+                <li>İki veya daha fazla oyuncunun aynı puana sahip olması durumunda, söz konusu puana daha önce ulaşan oyuncu daha üst sırada yer alır.</li>
+                <li>Ödüller turnuva sona erdikten sonraki <strong>24–72 saat</strong> içerisinde otomatik olarak tanımlanacaktır.</li>
+                <li>Eklenen turnuva kazancının <strong>1 katı çevrim şartı</strong> mevcuttur. Çevrim şartı tamamlandıktan sonra eklenen nakit ödülün maksimum 10 katına kadar çekim işlemi yapılmaktadır. Üzeri tutarlar otomatik olarak düzenlenecektir.</li>
+                <li><strong>Evoplay ve RadissonBet</strong> bu promosyonu dilediği zaman değiştirme veya iptal etme hakkını saklı tutar.</li>
+                <li>Bu kurallar <strong>RadissonBet Genel Hüküm ve Koşullarını</strong> içerir.</li>
+            </ol>
+        </section>
+
+        <section class="content-card">
+            <h2>Geçerli Oyunlar</h2>
+            <p>Turnuvaya katılım sağlayabileceğiniz Evoplay oyunları:</p>
+            <ul class="games-list">
+                <li><strong>Hot Triple Sevens</strong></li>
+                <li><strong>Cat's Blessing</strong></li>
+                <li><strong>The Greatest Catch Bonus Buy</strong></li>
+                <li><strong>Piggy Bank: 3 Pots Bonanza</strong></li>
+                <li><strong>Liberty Fireworks</strong></li>
+                <li><strong>Olympus Gold Rush</strong></li>
+                <li><strong>Lu Fu Vortex</strong></li>
+                <li><strong>Crimson Crown</strong></li>
+                <li><strong>Young Buffalo Song</strong></li>
+                <li><strong>Joker Jane</strong></li>
+                <li><strong>Imperial Relics: Three Pots</strong></li>
+                <li><strong>3 Crowns: Coin Hunt</strong></li>
+                <li><strong>Golden Fish Collector</strong></li>
+                <li><strong>Honey Royale</strong></li>
+                <li><strong>Fruit Super Nova</strong></li>
+            </ul>
+        </section>
+
+        <footer class="footer">
+            © RadissonBet · 18+ · Sorumlu oyun
+        </footer>
+    </main>
+</body>
+</html>
